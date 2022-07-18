@@ -7,56 +7,45 @@ body {
 }
 
 .container {
-  display:flex;
+  display: flex;
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.a {
-  flex-grow: 1;
-  margin: 1em;
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 3;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70vh;
 }
 
-/**********************
-Main 
-*********************/
+header, aside, footer, .wrapper {
+  flex-grow: 1;
+  margin: 1em;
+  min-height: 10vh;
+}
+
+aside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 98%;
+  min-height: 20vh;
+}
+
+aside > div {
+  flex-grow: 10; 
+  margin: .5em;
+}
 
 main {
-  min-height: 60vh;
-  margin: 1em; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-grow: 1;
-}
-
-div[class$='row'] {
-  display: flex;
-  margin-bottom: 1em;
-}
-
-.top-row {
-  width: 100%;
-  flex-grow: 2;
-}
-
-.top-row .b {
-  width: 100%;
-  flex-grow: 2;
-  margin: 1em;
-}
-
-.bottom-row {
-  width:100%;
-  flex-grow: 1;
-  justify-content: space-around;
-  margin: 1em;
-}
-
-.f {
-  flex-grow: 1;
-  margin: 1em;
+  width: 98%;
+  flex-grow: 3; 
+  margin: .5em;
 }
 
 @media (min-width: 600px) {
@@ -64,19 +53,23 @@ div[class$='row'] {
     flex-direction: row;
     flex-wrap: wrap;
   }
-
-  .main {
-    width:100%;
+  header {
+    width: 100%;
+    max-height: 10vh;
   }
 
-  div[class$='row'] {
-    display: flex;
-    max-width: 60%;
-    flex-shrink: 3;
+  aside > div {
+    height: 15em;
   }
 
-  .f {
-    align-content: stretch;
-    flex: 2 1 60vh;
+  .wrapper {
+    justify-content: space-around;
+    flex-basis: 60%;
+    min-height: 30vh;
+  }
+  footer {
+    margin: .5em;
+    flex-grow: 2;
+    min-height: 80vh;
   }
 }
